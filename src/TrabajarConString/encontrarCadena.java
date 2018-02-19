@@ -26,7 +26,7 @@ public class encontrarCadena {
              
              if (inicioCodon == -1) 
                     return "No hay GEN. No se encuentra ATG";
-                           
+              //             
              //Fin Codom TTA, TGA y TAG
              int finCodonTAA = BuscarStopCodon(adn1,inicioCodon,"TAA");
              int finCodonTGA = BuscarStopCodon(adn1,inicioCodon,"TGA");
