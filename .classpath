@@ -8,6 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="H:/Jhon/Documentos/Java-Android/Clases/courserajava.jar"/>
+	<classpathentry kind="lib" path="D:/Users/jrperez/Documents/Jhon/eclipse/Ejemplos/courserajava.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
