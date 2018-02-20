@@ -15,7 +15,7 @@ public class encontrarCadena {
                     else
                            actualIndex = adn.indexOf(stopCodon,actualIndex+1);
              }
-             return adn.length();
+             return -1;
        }
        
        public static String EncontrarGen(String adn) {
@@ -30,15 +30,31 @@ public class encontrarCadena {
              //Fin Codom TTA, TGA y TAG
              int finCodonTAA = BuscarStopCodon(adn1,inicioCodon,"TAA");
              int finCodonTGA = BuscarStopCodon(adn1,inicioCodon,"TGA");
-             int finCodoTAG= BuscarStopCodon(adn1,inicioCodon,"TAG");
+             int finCodonTAG= BuscarStopCodon(adn1,inicioCodon,"TAG");
              
+             //Selecciono el minimo valor
              
-             //resultado = adn.substring(startIndex, actualIndex+3);
-             //return "El gen es: " + resultado;
+             //int temp  = Math.min(finCodonTAA, finCodonTGA);
+             //int minfinCodon = Math.min(temp, finCodonTAG);
              
-             //return "No hay GEN. No se encuentra TAA";
+             int minfinCodon = 0;
              
-             return "";
+             if (finCodonTAA == -1 || (finCodonTGA != -1 && finCodonTGA < finCodonTAA)){
+            	 minfinCodon= finCodonTGA;
+             }
+             else {
+            	 minfinCodon=finCodonTAA;
+             }
+             
+             if (minfinCodon ==-1 || (finCodonTAG != -1 && finCodonTAG < minfinCodon)) {
+            	 minfinCodon = finCodonTAG;
+             }
+             
+             if (minfinCodon == -1) {
+            	 return "No hay Gen";
+             }
+               
+             return adn1.substring(inicioCodon, minfinCodon+3);
        }
        
        public static void main (String[] arg) {
