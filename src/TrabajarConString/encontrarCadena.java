@@ -1,5 +1,6 @@
 package TrabajarConString;
 import javax.swing.*;
+import edu.duke.*;
  
  
 public class encontrarCadena {
@@ -18,14 +19,14 @@ public class encontrarCadena {
              return -1;
        }
        
-       public static String EncontrarGen(String adn) {
+       public static String EncontrarGen(String adn, int inicio) {
              String resultado="";
              String adn1 = adn.toUpperCase();
              //Inicio Codom ATG
-             int inicioCodon = adn1.indexOf("ATG");
+             int inicioCodon = adn1.indexOf("ATG",inicio);
              
              if (inicioCodon == -1) 
-                    return "No hay GEN. No se encuentra ATG";
+                    return "";
               //             
              //Fin Codom TTA, TGA y TAG
              int finCodonTAA = BuscarStopCodon(adn1,inicioCodon,"TAA");
@@ -51,15 +52,31 @@ public class encontrarCadena {
              }
              
              if (minfinCodon == -1) {
-            	 return "No hay Gen";
+            	 return "";
              }
                
              return adn1.substring(inicioCodon, minfinCodon+3);
        }
        
+       
+       public static void almacenarTodosGenes (String adn) {
+    	   
+    	   StorageResource s = new StorageResource();
+    	   int inicioIndece = 0;
+    	   
+    	   while (true) {
+    		   String actualGen = EncontrarGen(adn,inicioIndece);
+    		   if (actualGen.isEmpty()) {
+    			   break;
+    		   }
+    		   System.out.println(actualGen);
+    		   inicioIndece = adn.indexOf(actualGen,inicioIndece) + actualGen.length();
+    	   }
+       }
+       
        public static void main (String[] arg) {
        
-             //String texto="ATGATCGCTAATAATTAAGCTGATAGG";
+             //String texto="ATGATCTAATTTATGCTGCAACGGTGAAGAATGTAG";
              String texto=JOptionPane.showInputDialog("Intoduce el codigo ADN");
              String gen="";
              /*int x = texto.length();
@@ -70,9 +87,11 @@ public class encontrarCadena {
              */
              //JOptionPane.showMessageDialog(null,x + "\n" + s + "\n" + e + "\n" + sW + "\n" + eW);
              
-             gen=EncontrarGen(texto);
              System.out.println("La cadena introducida es : " + texto);
-             System.out.println(gen);
+             System.out.println("Los genes son");
+             almacenarTodosGenes(texto);
+             
+             //System.out.println(gen);
              
              
        }
