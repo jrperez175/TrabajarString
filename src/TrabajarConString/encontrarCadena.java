@@ -64,6 +64,7 @@ public class encontrarCadena {
     	   StorageResource s = new StorageResource();
     	   int inicioIndece = 0;
     	   
+    	   
     	   while (true) {
     		   String actualGen = EncontrarGen(adn,inicioIndece);
     		   if (actualGen.isEmpty()) {
