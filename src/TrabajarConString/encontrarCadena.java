@@ -59,9 +59,9 @@ public class encontrarCadena {
        }
        
        
-       public static void almacenarTodosGenes (String adn) {
+       public static StorageResource almacenarTodosGenes (String adn) {
     	   
-    	   StorageResource s = new StorageResource();
+    	   StorageResource listaGenes = new StorageResource();
     	   int inicioIndece = 0;
     	   
     	   
@@ -70,9 +70,10 @@ public class encontrarCadena {
     		   if (actualGen.isEmpty()) {
     			   break;
     		   }
-    		   System.out.println(actualGen);
+    		   listaGenes.add(actualGen);
     		   inicioIndece = adn.indexOf(actualGen,inicioIndece) + actualGen.length();
     	   }
+    	   return listaGenes;
        }
        
        public static void main (String[] arg) {
@@ -80,6 +81,7 @@ public class encontrarCadena {
              //String texto="ATGATCTAATTTATGCTGCAACGGTGAAGAATGTAG";
              String texto=JOptionPane.showInputDialog("Intoduce el codigo ADN");
              String gen="";
+             
              /*int x = texto.length();
              String s = texto.substring(3, 7);
              int e = texto.indexOf("TTA");
@@ -90,7 +92,11 @@ public class encontrarCadena {
              
              System.out.println("La cadena introducida es : " + texto);
              System.out.println("Los genes son");
-             almacenarTodosGenes(texto);
+             StorageResource genes = almacenarTodosGenes(texto);
+             
+             for (String g: genes.data() ) {
+            	 System.out.println(g);
+             }
              
              //System.out.println(gen);
              
