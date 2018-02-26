@@ -18,12 +18,18 @@ public class encontrarCadenaTest {
 
 	@Test
 	public void testAlmacenarTodosGenes() {
-		fail("Not yet implemented");
+		//Definico
+		//
+		
+		//Assert		
+		//assertEquals(resultadoEsperado, resultadoReal, 0.01);
 	}
 
 	@Test
 	public void testMain() {
-		fail("Not yet implemented");
+		
+		
+		
 	}
 
 }
