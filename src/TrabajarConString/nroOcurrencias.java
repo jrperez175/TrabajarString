@@ -31,6 +31,8 @@ public class nroOcurrencias {
 		return ultParte;
 	}
 	
+	
+	
 	public static void main (String[] arg) {
 		boolean ocurrencia;
 		String texto = JOptionPane.showInputDialog("Ingrese la Cadena de texto");
