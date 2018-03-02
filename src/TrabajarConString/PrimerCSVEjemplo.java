@@ -65,15 +65,17 @@ public class PrimerCSVEjemplo {
 	
 	public static void bigExporters (CSVParser parser, String amount) {
 		
-		for (CSVRecord record : parser) {
-			String value =record.get("Value (dollars)");
-			if (value.length() > amount.length()) {
+			for (CSVRecord record : parser) {
+				String value =record.get("Value (dollars)");
+				if (value.length() > amount.length()) {
 				System.out.print(record.get("Country"));
 				System.out.print(" ");
 				System.out.println(record.get("Value (dollars)"));
 			}
 		}
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		FileResource fr = new FileResource();
